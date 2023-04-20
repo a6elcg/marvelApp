@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+/* Body margin */
+.body-margin {
+  margin-left: 13vw;
+  margin-right: 13vw;
+  margin-top: 4vh;
+}
+
+@media (max-width: 600.98px) {
+  .body-margin {
+    margin: 1rem;
+  }
+
+  .p-dialog {
+    width: 91vw !important;
+  }
+
+}
+
+.p-dialog {
+  width: 40vw;
+}
+
+.p-dialog-content {
+  text-align: center;
+}

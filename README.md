@@ -1,27 +1,28 @@
 # MarvelApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
+Este proyecto muestra un listado de personajes de Marvel obtenidos de la [API Marvel](https://developer.marvel.com). A continuación se describen las funcionalidades incluidas:
 
-## Development server
+* Se obtienen 100 personajes de la API de Marvel y se muestran en una lista, la cual es responsiva.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* Se permite navegar con ayuda de paginación.
 
-## Code scaffolding
+* Los personajes obtenidos se almacenan en localStorage para poder manipularlos.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Se puede realizar un filtrado buscando por "nombre".
 
-## Build
+* Al seleccionar un elemento de la lista, se abre un modal de detalle.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* En el modal de detalle se permite:
+  * Visualizar nombre e imagen del personaje seleccionado.
+  * Editar el nombre.
+  * Eliminar personaje.
+  * Cerrar modal.
 
-## Running unit tests
+Se incluyeron componentes UI de [PrimeNG](https://primeng.org/).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Se obtuvieron las keys pública y privada en [API Marvel](https://developer.marvel.com).
 
-## Running end-to-end tests
+Se generó el HASH en [MD5 Hash Generator](https://www.md5hashgenerator.com/).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 14.2.4.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

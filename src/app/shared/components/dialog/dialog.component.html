@@ -1,0 +1,24 @@
+<p-dialog
+[(visible)]="display"
+[modal]="true"
+[closable]="false"
+[draggable]="true"
+>
+<!-- mostrar información del personaje: nombre, imagen -->
+
+<h2>{{data.name}}</h2>
+<img [src]="data | image" [alt]="data.name" style="max-width: 100%; height: 60%;">
+<!-- <input type="text" [value]="data.name"> -->
+<br>
+
+<!-- acciones posibles: editar/eliminar personaje y cerrar modal -->
+<input pInputText [(ngModel)]="data.name"/>
+<br>
+<p-button (click)="editCharacter()">Editar</p-button>
+<p-button (click)="deleteCharacter()" styleClass="p-button-danger">Eliminar</p-button>
+
+<ng-template pTemplate="footer">
+  <p-button (click)="closeModal()" styleClass="p-button-danger">Cerrar</p-button>
+</ng-template>
+
+</p-dialog>

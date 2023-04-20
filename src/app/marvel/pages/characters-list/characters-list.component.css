@@ -1,0 +1,13 @@
+img {
+  width: 100px;
+  height: 100px;
+}
+
+/* ancho completo para el input de búsqueda */
+.full-width {
+  width: 100%;
+}
+
+#span-description {
+  margin-right: 100px;
+}
