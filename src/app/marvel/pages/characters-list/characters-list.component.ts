@@ -40,6 +40,8 @@ export class CharactersListComponent implements OnInit {
   onClose(data?: Character) {
     // si se recibe data, significa que se solicita una edición de personaje
     if (data) {
+      console.log('si entra');
+      
       this.characters.map((character) => {
         if (character.id === data.id) {
           character.name = data.name;
@@ -47,6 +49,7 @@ export class CharactersListComponent implements OnInit {
       });
       this.marvelService.updateData(this.characters);
     }
+    
     this.displayModal = false;
   }
 }

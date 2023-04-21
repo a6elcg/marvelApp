@@ -20,12 +20,18 @@ export class DialogComponent {
   @Output() deleteSelf = new EventEmitter<any>(); // evento que permitirá saber qué hacer con el personaje (nada, editar, eliminar)
 
   enableEditButton: boolean = false; // habilitar botón de edición
+  newName: string = '';
 
   constructor(private marvelService: MarvelService) {}
 
   // función para detectar cambios en input text
   onKeydown() {
     this.enableEditButton = true;
+  }
+
+  // función para capturar el nuevo nombre
+  onInput(event: any) {
+    this.newName = event.target.value;
   }
 
   // función para cerrar modal sin más acciones
@@ -35,6 +41,7 @@ export class DialogComponent {
 
   // función para cerrar modal con edición de personaje
   editCharacter() {
+    this.character.name = this.newName;
     this.deleteSelf.emit(this.character);
   }
 
