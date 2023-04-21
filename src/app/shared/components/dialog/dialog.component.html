@@ -14,7 +14,7 @@
   <br />
 
   <!-- acciones posibles: editar/eliminar personaje y cerrar modal -->
-  <input pInputText [(ngModel)]="character.name" (keydown)="onKeydown()"/>
+  <input pInputText (input)="onInput($event)" [placeholder]="character.name" (keydown)="onKeydown()"/>
   <br />
 
   <p-button 
