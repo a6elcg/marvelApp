@@ -39,9 +39,7 @@ export class CharactersListComponent implements OnInit {
   // TODO: función para cerrar el modal validando si se hará o no una edición de personaje
   onClose(data?: Character) {
     // si se recibe data, significa que se solicita una edición de personaje
-    if (data) {
-      console.log('si entra');
-      
+    if (data) {   
       this.characters.map((character) => {
         if (character.id === data.id) {
           character.name = data.name;
@@ -49,7 +47,6 @@ export class CharactersListComponent implements OnInit {
       });
       this.marvelService.updateData(this.characters);
     }
-    
     this.displayModal = false;
   }
 }
