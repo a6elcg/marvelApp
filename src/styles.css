@@ -1,12 +1,13 @@
-
-
-/* Body margin */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 .body-margin {
   margin-left: 13vw;
   margin-right: 13vw;
   margin-top: 4vh;
 }
 
+/* ajuste de tamaños para ispositivos móviles */
 @media (max-width: 600.98px) {
   .body-margin {
     margin: 1rem;

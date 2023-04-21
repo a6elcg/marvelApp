@@ -8,18 +8,20 @@ import { MarvelService } from '../../services/marvel.service';
   styleUrls: ['./characters-list.component.css'],
 })
 export class CharactersListComponent implements OnInit {
-  character!: Character;            // almacenar un personaje para enviar al modal de detalle 
-  displayModal: boolean = false;    // manejar el toggle del modal
+  character!: Character; // almacenar un personaje para enviar al modal de detalle
+  displayModal: boolean = false; // manejar el toggle del modal
 
   constructor(private marvelService: MarvelService) {}
 
   ngOnInit(): void {
     this.marvelService.getCharacters(); // ejecutar la función para consultar API
+    // las suscripción está en el servicio ya que en él
+    // se manipula el localStorage
   }
 
   // TODO: obtener los personajes del servicio
   get characters() {
-    return this.marvelService.results;
+    return this.marvelService.characters;
   }
 
   // TODO: función para abrir el modal de detalle, se envía la información del personaje

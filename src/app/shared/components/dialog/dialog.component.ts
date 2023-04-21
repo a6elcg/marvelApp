@@ -4,29 +4,43 @@ import { MarvelService } from 'src/app/marvel/services/marvel.service';
 
 @Component({
   selector: 'app-dialog',
-  templateUrl: './dialog.component.html'
+  templateUrl: './dialog.component.html',
+  styles: [
+    `
+      img {
+        max-width: 100%;
+        height: 50%;
+      }
+    `,
+  ],
 })
 export class DialogComponent {
+  @Input() display!: boolean; // boolean para abrir/cerrar el modal
+  @Input() character!: Character; // data recibida para ser mostrada/modificada, contiene un personaje
+  @Output() deleteSelf = new EventEmitter<any>(); // evento que permitirá saber qué hacer con el personaje (nada, editar, eliminar)
 
-  @Input() display!: boolean;                       // boolean para abrir/cerrar el modal
-  @Input() data!: Character;                           // data recibida para ser mostrada/modificada, contiene un personaje
-  @Output() deleteSelf = new EventEmitter<any>();   // evento que permitirá saber qué hacer con el personaje (nada, editar, eliminar)
-  
-  constructor(
-    private marvelService: MarvelService
-  ) { }
-  
+  enableEditButton: boolean = false; // habilitar botón de edición
+
+  constructor(private marvelService: MarvelService) {}
+
+  // función para detectar cambios en input text
+  onKeydown() {
+    this.enableEditButton = true;
+  }
+
+  // función para cerrar modal sin más acciones
   closeModal() {
     this.deleteSelf.emit();
   }
 
+  // función para cerrar modal con edición de personaje
   editCharacter() {
-    this.deleteSelf.emit(this.data);
+    this.deleteSelf.emit(this.character);
   }
 
+  // función para cerrar modal y eliminar un personaje
   deleteCharacter() {
-    this.marvelService.deleteCharacter(this.data);
+    this.marvelService.deleteCharacter(this.character);
     this.closeModal();
   }
-
 }
